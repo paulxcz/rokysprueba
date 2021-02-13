@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.btn-burger{
+    display: none;
+}
+
 body{
     font-family: 'Mulish', sans-serif;
     font-weight: 800;
@@ -203,6 +207,7 @@ details{
     padding: 0.8em;
     background-color: #FED925;
     color: #00712C;
+    text-align: center;
     border-radius: 20px;
     margin: 0 10px;
     margin-top: 20px;
@@ -322,6 +327,15 @@ details{
      margin-top: -25px;
  }
 
+ .icon::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+
  .flex-direction-nav a::before{
     
     font-family: "Font Awesome 5 Free";
@@ -339,6 +353,7 @@ details{
 
  .flex-direction-nav .flex-prev{
      left: 15px;
+     
  }
  .flex-direction-nav .flex-next{
 
@@ -543,6 +558,7 @@ details{
     background-color: #fff;
     margin-top: -17px;
     border: 1px solid #D8D8D8;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -573,6 +589,7 @@ details{
    padding-left: 20px;
    border-left: 2px solid #00712C;
    color: #00712C;
+   
 }
 
 .precio strong{
@@ -612,13 +629,15 @@ details{
 .footer{
     background: #00833E;
     width: 100%;
-    height: 459px;
+    /* height: 459px; */
+    height: auto;
     margin-top: 80px;
 }
 
 .container-footer{
     width: 91%;
-    height: 412.19px;
+    /* height: 412.19px; */
+    height: auto;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -652,12 +671,39 @@ details{
     font-weight: 900;
 }
 
+.mapa>h3{
+    margin-bottom: 15px;
+}
+
+.mapa > a{
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+
 .legal{
 
     width: 300px;
     color: white;
     padding: 50px 25px;
     font-weight: 900;
+}
+
+.legal > h3{
+    margin-bottom: 15px;
+}
+
+.legal > a{
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 8px;
 }
 
 .opciones-variadas{
@@ -708,7 +754,7 @@ details{
     text-align: center;
     margin: 0 auto;
     color: white;
-    width: 600px;
+    width: 100%;
     padding-top: 13px;
     
 }
@@ -722,75 +768,163 @@ details{
     }
  }
 
- @media screen and (max-width: 970px){
+ @media screen and (max-width: 1024px){
 
-  .header{
-      display: block;
-      position: static;
-      height: 100%;
-      width: 100%;
-  }
-
-  .wrapper{
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 200px;
-    z-index: 3;
-    background-color: #00712C;
-   
-  }
-
-  .wrapper .menu{
-      display: block;
-      
-  }
-
-  .ul-header{
-      display: block;
-      padding-left: 10px;
-      background-color: #00712C;
-          
-  }
-  .li-header{
-    height: 50px;
-    margin: 15px 0;
-  }
-  .link{
-      color: black;
-  }
-
-  .buscar input{
-      width: 140px;
-  }
-  .pide_online{
-      width: 140px;
-  }
-
-  .link-sign-up{
-    font-size: 1rem;
+    .pide_online{
+        text-align: center;
+        margin-top: 10px;
     }
-   .link-sign-up i{
-
-    margin: 0;
-    position: relative;
-    right: 35px;
-   }
-
-   .btn{
-     background-color: black;
-   }
-
  }
 
  @media screen and (max-width: 720px){
 
+    
     .header{
-        display: none;
+        overflow: visible;
+    }
+    .wrapper{
+        width: 100%;
+        overflow: visible;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .wrapper figure{
+        width: 95%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .header figure img.logo-rokys{
+        width: 133px;
+        height: 75px;
+    }
+
+    .btn-burger{
+        display: inline;
+        position: relative;
+        top: 15px;
+        right: 30px;
+        z-index: 1000;
+     }
+    .menu{
+        background-color: #00712C;
+        border-radius: 17px;
+        display: block;
+        position: absolute;
+        width: 300px;
+        height: 600px;
+        z-index: 100;
+        top: 88px;
+        left: 0; 
+        transform: translateX(-400px);
+        transition: transform 0.5s ease-in-out;
+        opacity: 0.9;
+    }
+
+    .menu.show{
+        transform: translateX(-20px);
+    }
+
+    .ul-header{
+        display: block;
+    }
+
+    .link{
+        justify-content: center;
+    }
+    .container-search{
+        justify-content: center;
+    }
+
+    .li-header{
+        height: 90px;
+        text-align: center;
+    }
+
+    .li-header *{
+        color: black;
+        font-weight: 900;
+    }
+
+    .link-sign-up{
+        font-size: 1rem;
+        justify-content: center;
+    }
+    .btn{
+        background-color: transparent;
     }
      .cartas{
          width: 94%;
      }
 
+
+     .btn-burger:hover .menu{
+         display: block;
+     }
+     /*CARTA-CATEGORIAS*/
+     .container-cartas{
+         padding-left: 70px;
+     }
+
+     .item-a { width: 560px; }
+     .item-b { width: 560px; }
+     .item-c { width: 560px; }
+     .item-d { width: 560px; } /*560px*/
+     
+     /*FOOTER*/
+
+     .container-footer{
+         flex-direction: column;
+         align-items: center;
+     }
+     .container-footer .mensaje{
+         display: none;
+     }
+
+     .container-footer h3{
+         text-align: center;
+     }
+     
+     .container-footer .mapa,
+     .container-footer .legal,
+     .container-footer .opciones-variadas{
+
+        padding: 25px 50px;
+     }
+
+     .container-footer .opciones-variadas .libro-de-reclamaciones{
+         text-align: center;
+     }
+
+     .container-footer .opciones-variadas .redes-sociales{
+         text-align: center;
+     }
+
+     .mapa > a{
+        font-weight: 800;
+        text-align: center;
+    }
+
+    .legal > a{
+        font-weight: 800;
+        text-align: center;
+    }
+
  }
+
+ @media screen and (max-width: 480px){
+
+    .item-a { width: 320px; }
+    .item-b { width: 320px; }
+    .item-c { width: 320px; }
+    .item-d { width: 320px; } /*560px*/
+ }
+
+ @media screen and (max-width: 320px){
+    .item-a { width: 160px; }
+    .item-b { width: 160px; }
+    .item-c { width: 160px; }
+    .item-d { width: 160px; } /*560px*/
+
+}

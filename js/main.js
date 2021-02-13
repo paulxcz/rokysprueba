@@ -1,3 +1,9 @@
+document.querySelector('.btn-burger').addEventListener('click',()=> { 
+    document.querySelector('.menu').classList.toggle('show')
+});
+
+
+
 $(document).ready(function(){
 
     $('.flexslider').flexslider({
